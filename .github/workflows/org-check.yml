@@ -20,7 +20,7 @@ jobs:
             - name: Write to summary
               shell: bash
               env:
-                GREETING: ${{ secrets.GREETING }}
+                GREETING: ${{ vars.GREETING }}
                 LAB_SECRET: ${{ secrets.LAB_SECRET  }}
               run: |
                 if [ -z "$LAB_SECRET" ]; then
