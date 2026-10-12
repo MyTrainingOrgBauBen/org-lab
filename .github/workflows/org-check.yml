@@ -17,3 +17,20 @@ jobs:
                 url: ${{ env.CHECK_URL }}
                 expected: "Hallo, Org!"
                 retries: 3
+            - name: Write to summary
+              shell: bash
+              env:
+                GREETING: ${{ secrets.GREETING }}
+                LAB_SECRET: ${{ secrets.LAB_SECRET  }}
+              run: |
+                if [ -z "$LAB_SECRET" ]; then
+                    ISSET="nein"
+                else
+                    ISSET="ja"
+                fi
+                {
+                    echo "The value of GREETING: $GREETING"
+                    echo "Is LAB_SECRET set? $ISSET"
+                    echo "The value of LAB_SECRET: $LAB_SECRET"
+                } >> "GITHUB_STEP_SUMMARY"
+                
