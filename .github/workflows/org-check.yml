@@ -32,5 +32,5 @@ jobs:
                     echo "The value of GREETING: $GREETING"
                     echo "Is LAB_SECRET set? $ISSET"
                     echo "The value of LAB_SECRET: $LAB_SECRET"
-                } >> "GITHUB_STEP_SUMMARY"
+                } >> "$GITHUB_STEP_SUMMARY"
                 
