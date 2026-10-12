@@ -9,7 +9,7 @@ jobs:
     check:
         runs-on: ubuntu-latest
         env:
-            CHECK_URL: raw.githubusercontent.com/${{ github.repository }}/refs/heads/main/hello.txt
+            CHECK_URL: https://raw.githubusercontent.com/${{ github.repository }}/refs/heads/main/hello.txt?token=${{ secrets.GITHUB_TOKEN }}
         steps:
             - name: Check raw content
               uses: bauben/http-check-action@a302b9cf0273dcc16329ec2d51435a9467bf6642 #1.0.7
